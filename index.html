@@ -4,23 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090909">
-  <meta name="description" content="SkyTools.Linux - SkyTools agora no Linux!">
+  <meta name="description" content="SkyTools.Linux - Um port do SkyTools para Linux.">
   <title>SkyTools.Linux</title>
-  
-  <meta property="og:title" content="SkyTools.Linux">
-  <meta property="og:description" content="SkyTools agora no Linux!">
-  <meta property="og:type" content="website">
-  
-  <meta property="og:image" content="https://renpyflare.vercel.app/pinguim-safado.png">
 
+  <meta property="og:title" content="SkyTools.Linux">
+  <meta property="og:description" content="Um port do SkyTools para Linux.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://renpyflare.vercel.app/pinguim-safado.png">
   <meta property="og:url" content="https://renpyflare.vercel.app">
 
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" type="image/png" href="pinguim-safado.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     * {
@@ -115,7 +118,7 @@
       gap: 10px;
     }
 
-    .millennium-pill {
+    .port-pill {
       display: inline-flex;
       align-items: center;
       padding: 8px 12px;
@@ -454,7 +457,7 @@
         min-height: auto;
       }
 
-      .millennium-pill {
+      .port-pill {
         display: none;
       }
     }
@@ -532,15 +535,20 @@
 </head>
 
 <body>
+
   <header class="topbar">
     <div class="topbar-inner">
+
       <div class="brand">
-        <img src="logo.png" alt="SkyTools.Linux">
+        <img src="pinguim-safado.png" alt="SkyTools.Linux">
         <span>SkyTools.Linux</span>
       </div>
 
       <div class="topbar-right">
-        <div class="millennium-pill" data-i18n="millennium">Millennium • Steam</div>
+
+        <div class="port-pill" data-i18n="port">
+          SkyTools.Linux
+        </div>
 
         <select id="language-select" class="language-select" aria-label="Language">
           <option value="auto">AUTO</option>
@@ -549,277 +557,603 @@
           <option value="en">EN</option>
           <option value="ru">RU</option>
         </select>
+
       </div>
     </div>
   </header>
 
   <main>
+
     <section class="hero">
+
       <div class="logo-wrap">
         <img src="logo.png" alt="SkyTools.Linux">
       </div>
 
       <div class="badge">
         <span class="badge-dot"></span>
-        <span data-i18n="badge">Plugin Millennium para Steam</span>
+        <span data-i18n="badge">
+          Port do SkyTools para Linux
+        </span>
       </div>
 
       <h1>SkyTools.Linux</h1>
 
       <p class="subtitle" data-i18n="subtitle">
-        Ferramentas para Steam no Linux, com recursos para fixes, manifests e tarefas avançadas relacionadas aos seus jogos.
+        O SkyTools.Linux é um port do SkyTools desenvolvido para trazer
+        um dos melhores tools para o Linux.
       </p>
 
       <div class="commands">
+
         <div class="command-card">
+
           <div class="command-card-header">
             <div>
-              <div class="command-title" data-i18n="installTitle">Instalar SkyTools.Linux</div>
+              <div class="command-title" data-i18n="installTitle">
+                Instalar SkyTools.Linux
+              </div>
+
               <div class="command-description" data-i18n="installDescription">
-                Instale o plugin e configure os componentes necessários no seu sistema.
+                Baixe e configure o SkyTools.Linux diretamente pelo terminal.
               </div>
             </div>
           </div>
 
           <div class="command-line">
+
             <div class="command-text">
               <span class="prompt">$</span>
-              <span id="install-command">curl -fsSL https://renpyflare.vercel.app/install.sh | sh</span>
+              <span id="install-command">
+                curl -fsSL https://renpyflare.vercel.app/install.sh | sh
+              </span>
             </div>
-            <button class="copy-btn" data-copy="install-command" data-i18n="copy">Copiar</button>
+
+            <button
+              class="copy-btn"
+              data-copy="install-command"
+              data-i18n="copy"
+            >
+              Copiar
+            </button>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
+
     <section class="features">
+
       <h2 class="section-title" data-i18n="sectionTitle">
-        Ferramentas para seus jogos.
+        SkyTools no Linux.
       </h2>
 
       <p class="section-text" data-i18n="sectionText">
-        O SkyTools.Linux leva recursos do SkyTools para o Steam no Linux através do Millennium.
+        O SkyTools.Linux é uma adaptação do SkyTools para o ambiente Linux,
+        mantendo a proposta original enquanto adiciona suporte ao novo sistema.
       </p>
 
+
       <div class="feature-grid">
+
         <article class="feature">
+
           <div class="feature-icon">🛠️</div>
-          <h3 data-i18n="feature1Title">Game Fixes</h3>
+
+          <h3 data-i18n="feature1Title">
+            Game Fixes
+          </h3>
+
           <p data-i18n="feature1Text">
-            Recursos voltados para auxiliar na correção e manutenção de jogos dentro do Steam.
+            Recursos do SkyTools voltados para auxiliar na correção,
+            configuração e manutenção de jogos.
           </p>
+
         </article>
 
+
         <article class="feature">
+
           <div class="feature-icon">📦</div>
-          <h3 data-i18n="feature2Title">Manifest Tools</h3>
+
+          <h3 data-i18n="feature2Title">
+            Manifest Tools
+          </h3>
+
           <p data-i18n="feature2Text">
-            Ferramentas para trabalhar com manifests e informações relacionadas aos jogos.
+            Ferramentas para trabalhar com manifests e informações
+            relacionadas aos jogos.
           </p>
+
         </article>
 
+
         <article class="feature">
+
           <div class="feature-icon">🐧</div>
-          <h3 data-i18n="feature3Title">Linux + Millennium</h3>
+
+          <h3 data-i18n="feature3Title">
+            SkyTools + Linux
+          </h3>
+
           <p data-i18n="feature3Text">
-            Desenvolvido para rodar integrado ao Steam através do Millennium no Linux.
+            Um port focado em adaptar a experiência e os recursos do
+            SkyTools para usuários Linux.
           </p>
+
         </article>
+
       </div>
+
     </section>
+
   </main>
 
+
   <footer class="footer">
+
     <div class="footer-brand">
       <img src="logo.png" alt="">
       <span>SkyTools.Linux</span>
     </div>
 
-    <span data-i18n="copyright">© 2026 renpyflare</span>
+    <span data-i18n="copyright">
+      © 2026 renpyflare
+    </span>
+
   </footer>
 
+
   <script>
+
     const translations = {
+
       pt: {
-        millennium: "Millennium • Steam",
-        badge: "Plugin Millennium para Steam",
-        subtitle: "Ferramentas para Steam no Linux, com recursos para fixes, manifests e tarefas avançadas relacionadas aos seus jogos.",
-        installTitle: "Instalar SkyTools.Linux",
-        installDescription: "Instale o plugin e configure os componentes necessários no seu sistema.",
-        fixTitle: "SkyTools Fix",
-        fixDescription: "Execute o utilitário de correção para reparar problemas relacionados à instalação.",
-        copy: "Copiar",
-        copied: "Copiado",
-        sectionTitle: "Ferramentas para seus jogos.",
-        sectionText: "O SkyTools.Linux leva recursos do SkyTools para o Steam no Linux através do Millennium.",
-        feature1Title: "Game Fixes",
-        feature1Text: "Recursos voltados para auxiliar na correção e manutenção de jogos dentro do Steam.",
-        feature2Title: "Manifest Tools",
-        feature2Text: "Ferramentas para trabalhar com manifests e informações relacionadas aos jogos.",
-        feature3Title: "Linux + Millennium",
-        feature3Text: "Desenvolvido para rodar integrado ao Steam através do Millennium no Linux.",
-        copyright: "© 2026 renpyflare"
+        port: "SkyTools Port • Linux",
+        badge: "Port do SkyTools para Linux",
+
+        subtitle:
+          "O SkyTools.Linux é um port do SkyTools desenvolvido para trazer suas ferramentas e recursos para o Linux.",
+
+        installTitle:
+          "Instalar SkyTools.Linux",
+
+        installDescription:
+          "Baixe e configure o SkyTools.Linux diretamente pelo terminal.",
+
+        copy:
+          "Copiar",
+
+        copied:
+          "Copiado",
+
+        sectionTitle:
+          "SkyTools no Linux.",
+
+        sectionText:
+          "O SkyTools.Linux é uma adaptação do SkyTools para o ambiente Linux, mantendo a proposta original enquanto adiciona suporte ao novo sistema.",
+
+        feature1Title:
+          "Game Fixes",
+
+        feature1Text:
+          "Recursos do SkyTools voltados para auxiliar na correção, configuração e manutenção de jogos.",
+
+        feature2Title:
+          "Manifest Tools",
+
+        feature2Text:
+          "Ferramentas para trabalhar com manifests e informações relacionadas aos jogos.",
+
+        feature3Title:
+          "SkyTools + Linux",
+
+        feature3Text:
+          "Um port focado em adaptar a experiência e os recursos do SkyTools para usuários Linux.",
+
+        copyright:
+          "© 2026 renpyflare"
       },
+
+
       es: {
-        millennium: "Millennium • Steam",
-        badge: "Plugin Millennium para Steam",
-        subtitle: "Herramientas para Steam en Linux, con funciones para fixes, manifests y tareas avanzadas relacionadas con tus juegos.",
-        installTitle: "Instalar SkyTools.Linux",
-        installDescription: "Instala el plugin y configura los componentes necesarios en tu sistema.",
-        fixTitle: "SkyTools Fix",
-        fixDescription: "Ejecuta la herramienta de reparación para solucionar problemas relacionados con la instalación.",
-        copy: "Copiar",
-        copied: "Copiado",
-        sectionTitle: "Herramientas para tus juegos.",
-        sectionText: "SkyTools.Linux lleva funciones de SkyTools a Steam en Linux mediante Millennium.",
-        feature1Title: "Game Fixes",
-        feature1Text: "Funciones destinadas a ayudar con la corrección y el mantenimiento de juegos dentro de Steam.",
-        feature2Title: "Manifest Tools",
-        feature2Text: "Herramientas para trabajar con manifests e información relacionada con los juegos.",
-        feature3Title: "Linux + Millennium",
-        feature3Text: "Diseñado para funcionar integrado con Steam mediante Millennium en Linux.",
-        copyright: "© 2026 renpyflare"
+        port: "SkyTools Port • Linux",
+
+        badge:
+          "Port de SkyTools para Linux",
+
+        subtitle:
+          "SkyTools.Linux es un port de SkyTools desarrollado para llevar sus herramientas y funciones a Linux.",
+
+        installTitle:
+          "Instalar SkyTools.Linux",
+
+        installDescription:
+          "Descarga y configura SkyTools.Linux directamente desde la terminal.",
+
+        copy:
+          "Copiar",
+
+        copied:
+          "Copiado",
+
+        sectionTitle:
+          "SkyTools en Linux.",
+
+        sectionText:
+          "SkyTools.Linux es una adaptación de SkyTools para el entorno Linux, manteniendo su propuesta original y añadiendo soporte para el nuevo sistema.",
+
+        feature1Title:
+          "Game Fixes",
+
+        feature1Text:
+          "Funciones de SkyTools destinadas a ayudar con la corrección, configuración y mantenimiento de juegos.",
+
+        feature2Title:
+          "Manifest Tools",
+
+        feature2Text:
+          "Herramientas para trabajar con manifests e información relacionada con los juegos.",
+
+        feature3Title:
+          "SkyTools + Linux",
+
+        feature3Text:
+          "Un port enfocado en adaptar la experiencia y las funciones de SkyTools para usuarios de Linux.",
+
+        copyright:
+          "© 2026 renpyflare"
       },
+
+
       en: {
-        millennium: "Millennium • Steam",
-        badge: "Millennium plugin for Steam",
-        subtitle: "Tools for Steam on Linux, with features for fixes, manifests, and advanced tasks related to your games.",
-        installTitle: "Install SkyTools.Linux",
-        installDescription: "Install the plugin and configure the components required by your system.",
-        fixTitle: "SkyTools Fix",
-        fixDescription: "Run the repair utility to fix installation-related issues.",
-        copy: "Copy",
-        copied: "Copied",
-        sectionTitle: "Tools for your games.",
-        sectionText: "SkyTools.Linux brings SkyTools features to Steam on Linux through Millennium.",
-        feature1Title: "Game Fixes",
-        feature1Text: "Features designed to help with game fixes and maintenance inside Steam.",
-        feature2Title: "Manifest Tools",
-        feature2Text: "Tools for working with manifests and game-related information.",
-        feature3Title: "Linux + Millennium",
-        feature3Text: "Built to integrate with Steam through Millennium on Linux.",
-        copyright: "© 2026 renpyflare"
+        port:
+          "SkyTools Port • Linux",
+
+        badge:
+          "SkyTools port for Linux",
+
+        subtitle:
+          "SkyTools.Linux is a port of SkyTools designed to bring its tools and features to Linux.",
+
+        installTitle:
+          "Install SkyTools.Linux",
+
+        installDescription:
+          "Download and configure SkyTools.Linux directly from the terminal.",
+
+        copy:
+          "Copy",
+
+        copied:
+          "Copied",
+
+        sectionTitle:
+          "SkyTools on Linux.",
+
+        sectionText:
+          "SkyTools.Linux is an adaptation of SkyTools for the Linux environment, keeping the original concept while adding support for the new platform.",
+
+        feature1Title:
+          "Game Fixes",
+
+        feature1Text:
+          "SkyTools features designed to help with game fixes, configuration, and maintenance.",
+
+        feature2Title:
+          "Manifest Tools",
+
+        feature2Text:
+          "Tools for working with manifests and game-related information.",
+
+        feature3Title:
+          "SkyTools + Linux",
+
+        feature3Text:
+          "A port focused on adapting the SkyTools experience and features for Linux users.",
+
+        copyright:
+          "© 2026 renpyflare"
       },
+
+
       ru: {
-        millennium: "Millennium • Steam",
-        badge: "Плагин Millennium для Steam",
-        subtitle: "Инструменты для Steam в Linux с функциями для исправлений, manifests и расширенных задач, связанных с играми.",
-        installTitle: "Установить SkyTools.Linux",
-        installDescription: "Установите плагин и настройте необходимые компоненты в системе.",
-        fixTitle: "SkyTools Fix",
-        fixDescription: "Запустите инструмент восстановления для исправления проблем с установкой.",
-        copy: "Копировать",
-        copied: "Скопировано",
-        sectionTitle: "Инструменты для ваших игр.",
-        sectionText: "SkyTools.Linux переносит функции SkyTools в Steam на Linux через Millennium.",
-        feature1Title: "Game Fixes",
-        feature1Text: "Функции для помощи в исправлении и обслуживании игр внутри Steam.",
-        feature2Title: "Manifest Tools",
-        feature2Text: "Инструменты для работы с manifests и информацией, связанной с играми.",
-        feature3Title: "Linux + Millennium",
-        feature3Text: "Разработан для интеграции со Steam через Millennium в Linux.",
-        copyright: "© 2026 renpyflare"
+        port:
+          "SkyTools Port • Linux",
+
+        badge:
+          "Порт SkyTools для Linux",
+
+        subtitle:
+          "SkyTools.Linux — это порт SkyTools, созданный для переноса его инструментов и функций в Linux.",
+
+        installTitle:
+          "Установить SkyTools.Linux",
+
+        installDescription:
+          "Загрузите и настройте SkyTools.Linux непосредственно через терминал.",
+
+        copy:
+          "Копировать",
+
+        copied:
+          "Скопировано",
+
+        sectionTitle:
+          "SkyTools в Linux.",
+
+        sectionText:
+          "SkyTools.Linux — адаптация SkyTools для Linux, сохраняющая основную концепцию и добавляющая поддержку новой платформы.",
+
+        feature1Title:
+          "Game Fixes",
+
+        feature1Text:
+          "Функции SkyTools для исправления, настройки и обслуживания игр.",
+
+        feature2Title:
+          "Manifest Tools",
+
+        feature2Text:
+          "Инструменты для работы с manifests и информацией, связанной с играми.",
+
+        feature3Title:
+          "SkyTools + Linux",
+
+        feature3Text:
+          "Порт, предназначенный для адаптации возможностей SkyTools для пользователей Linux.",
+
+        copyright:
+          "© 2026 renpyflare"
       }
+
     };
 
-    const supportedLanguages = ["pt", "es", "en", "ru"];
-    const languageSelect = document.getElementById("language-select");
+
+    const supportedLanguages = [
+      "pt",
+      "es",
+      "en",
+      "ru"
+    ];
+
+
+    const languageSelect =
+      document.getElementById("language-select");
+
 
     function detectLanguage() {
-      const languages = navigator.languages && navigator.languages.length
-        ? navigator.languages
-        : [navigator.language || "en"];
+
+      const languages =
+        navigator.languages &&
+        navigator.languages.length
+          ? navigator.languages
+          : [navigator.language || "en"];
+
 
       for (const language of languages) {
-        const code = language.toLowerCase().split("-")[0];
 
-        if (supportedLanguages.includes(code)) {
+        const code =
+          language
+            .toLowerCase()
+            .split("-")[0];
+
+
+        if (
+          supportedLanguages.includes(code)
+        ) {
           return code;
         }
+
       }
+
 
       return "en";
     }
 
+
     function getActiveLanguage() {
+
       return languageSelect.value === "auto"
         ? detectLanguage()
         : languageSelect.value;
+
     }
 
-    function applyLanguage(language) {
-      const activeLanguage = language === "auto"
-        ? detectLanguage()
-        : language;
 
-      const t = translations[activeLanguage];
+    function applyLanguage(language) {
+
+      const activeLanguage =
+        language === "auto"
+          ? detectLanguage()
+          : language;
+
+
+      const t =
+        translations[activeLanguage];
+
 
       document.documentElement.lang =
         activeLanguage === "pt"
           ? "pt-BR"
           : activeLanguage;
 
-      document.querySelectorAll("[data-i18n]").forEach(element => {
-        const key = element.dataset.i18n;
 
-        if (t[key]) {
-          element.textContent = t[key];
-        }
-      });
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(element => {
 
-      document.querySelectorAll(".copy-btn").forEach(button => {
-        button.textContent = t.copy;
-      });
+          const key =
+            element.dataset.i18n;
+
+
+          if (t[key]) {
+            element.textContent =
+              t[key];
+          }
+
+        });
+
+
+      document
+        .querySelectorAll(".copy-btn")
+        .forEach(button => {
+
+          button.textContent =
+            t.copy;
+
+        });
+
     }
+
 
     function saveLanguage(language) {
-      localStorage.setItem("skytools-language", language);
+
+      localStorage.setItem(
+        "skytools-language",
+        language
+      );
+
     }
+
 
     function loadLanguage() {
-      return localStorage.getItem("skytools-language") || "auto";
+
+      return (
+        localStorage.getItem(
+          "skytools-language"
+        ) || "auto"
+      );
+
     }
+
 
     async function copyCommand(id, button) {
-      const command = document.getElementById(id).textContent.trim();
-      const activeLanguage = getActiveLanguage();
-      const t = translations[activeLanguage];
+
+      const command =
+        document
+          .getElementById(id)
+          .textContent
+          .trim();
+
+
+      const activeLanguage =
+        getActiveLanguage();
+
+
+      const t =
+        translations[activeLanguage];
+
 
       try {
-        await navigator.clipboard.writeText(command);
+
+        await navigator.clipboard.writeText(
+          command
+        );
+
       } catch {
-        const textarea = document.createElement("textarea");
-        textarea.value = command;
-        textarea.style.position = "fixed";
-        textarea.style.opacity = "0";
-        document.body.appendChild(textarea);
+
+        const textarea =
+          document.createElement(
+            "textarea"
+          );
+
+
+        textarea.value =
+          command;
+
+        textarea.style.position =
+          "fixed";
+
+        textarea.style.opacity =
+          "0";
+
+
+        document.body.appendChild(
+          textarea
+        );
+
+
         textarea.select();
-        document.execCommand("copy");
+
+
+        document.execCommand(
+          "copy"
+        );
+
+
         textarea.remove();
+
       }
 
-      button.textContent = t.copied;
+
+      button.textContent =
+        t.copied;
+
 
       setTimeout(() => {
-        button.textContent = t.copy;
+
+        button.textContent =
+          t.copy;
+
       }, 1600);
+
     }
 
-    languageSelect.addEventListener("change", () => {
-      saveLanguage(languageSelect.value);
-      applyLanguage(languageSelect.value);
-    });
 
-    document.querySelectorAll(".copy-btn").forEach(button => {
-      button.addEventListener("click", () => {
-        copyCommand(button.dataset.copy, button);
+    languageSelect.addEventListener(
+      "change",
+      () => {
+
+        saveLanguage(
+          languageSelect.value
+        );
+
+        applyLanguage(
+          languageSelect.value
+        );
+
+      }
+    );
+
+
+    document
+      .querySelectorAll(".copy-btn")
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            copyCommand(
+              button.dataset.copy,
+              button
+            );
+
+          }
+        );
+
       });
-    });
 
-    const savedLanguage = loadLanguage();
-    languageSelect.value = savedLanguage;
-    applyLanguage(savedLanguage);
+
+    const savedLanguage =
+      loadLanguage();
+
+
+    languageSelect.value =
+      savedLanguage;
+
+
+    applyLanguage(
+      savedLanguage
+    );
+
   </script>
+
 </body>
 </html>
 
