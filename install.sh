@@ -7,7 +7,7 @@ GITHUB_URL="https://github.com/renpyflare"
 
 SKYTOOLS_NAME="skytools-plugin"
 SKYTOOLS_DIR_NAME="SkyTools.Linux"
-SKYTOOLS_DOWNLOAD_URL="https://renpyflare.vercel.app/skytools/SkyTools.Linux.Plugin.zip"
+SKYTOOLS_DOWNLOAD_URL="https://renpyflare.vercel.app/plugin/SkyTools.Linux.Plugin.zip"
 MILLENNIUM_INSTALLER_URL="https://steambrew.app/install.sh"
 
 SYSTEM_LANG=$(printf '%s' "${LANG:-en}" | cut -c1-2)
