@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#151515">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="description" content="SkyTools.Linux - Ferramentas simples para Linux.">
   <title>SkyTools.Linux</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,14 +21,27 @@
       scroll-behavior: smooth;
     }
 
+    :root {
+      --orange: #ff7a00;
+      --orange-light: #ff9d42;
+      --orange-dark: #d95f00;
+      --black: #090909;
+      --black-soft: #101010;
+      --surface: #151515;
+      --surface-light: #1b1b1b;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f5f5f5;
+      --muted: #9a9a9a;
+    }
+
     body {
       min-height: 100vh;
       font-family: "Inter", sans-serif;
       background:
-        radial-gradient(circle at 15% 15%, rgba(90, 120, 255, 0.12), transparent 28%),
-        radial-gradient(circle at 85% 20%, rgba(161, 84, 255, 0.10), transparent 25%),
-        linear-gradient(180deg, #171717 0%, #101010 100%);
-      color: #f5f5f5;
+        radial-gradient(circle at 20% 10%, rgba(255, 122, 0, 0.16), transparent 28%),
+        radial-gradient(circle at 85% 25%, rgba(255, 92, 0, 0.09), transparent 25%),
+        linear-gradient(180deg, #0d0d0d 0%, #070707 100%);
+      color: var(--text);
       overflow-x: hidden;
     }
 
@@ -37,10 +51,10 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
       background-size: 32px 32px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.7), transparent 80%);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.75), transparent 85%);
     }
 
     .topbar {
@@ -48,12 +62,12 @@
       top: 0;
       z-index: 20;
       width: 100%;
-      height: 54px;
+      min-height: 58px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-bottom: 1px solid rgba(255,255,255,0.07);
-      background: rgba(20,20,20,0.78);
+      background: rgba(9,9,9,0.84);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
@@ -63,6 +77,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
     }
 
     .brand {
@@ -72,6 +87,7 @@
       font-weight: 700;
       font-size: 14px;
       letter-spacing: -0.02em;
+      white-space: nowrap;
     }
 
     .brand img {
@@ -80,14 +96,58 @@
       object-fit: contain;
     }
 
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .desktop-pill {
       padding: 7px 13px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255, 122, 0, 0.08);
+      border: 1px solid rgba(255, 122, 0, 0.18);
       font-size: 12px;
       font-weight: 600;
-      color: #cfcfcf;
+      color: #ffc18a;
+    }
+
+    .language-box {
+      position: relative;
+    }
+
+    .language-select {
+      appearance: none;
+      -webkit-appearance: none;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(45deg, transparent 50%, #aaa 50%) calc(100% - 16px) 50% / 6px 6px no-repeat,
+        linear-gradient(135deg, #aaa 50%, transparent 50%) calc(100% - 12px) 50% / 6px 6px no-repeat,
+        rgba(255,255,255,0.045);
+      color: #e8e8e8;
+      border-radius: 10px;
+      padding: 8px 34px 8px 11px;
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+      transition: 0.18s ease;
+    }
+
+    .language-select:hover {
+      border-color: rgba(255, 122, 0, 0.35);
+      background-color: rgba(255, 122, 0, 0.07);
+    }
+
+    .language-select:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.12);
+    }
+
+    .language-select option {
+      background: #121212;
+      color: #fff;
     }
 
     main {
@@ -96,7 +156,7 @@
     }
 
     .hero {
-      min-height: calc(100vh - 54px);
+      min-height: calc(100vh - 58px);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -112,10 +172,12 @@
       place-items: center;
       margin-bottom: 28px;
       border-radius: 28px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.025));
-      border: 1px solid rgba(255,255,255,0.09);
+      background:
+        linear-gradient(145deg, rgba(255, 122, 0, 0.14), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255, 122, 0, 0.18);
       box-shadow:
-        0 30px 80px rgba(0,0,0,0.3),
+        0 30px 80px rgba(0,0,0,0.45),
+        0 0 50px rgba(255, 122, 0, 0.08),
         inset 0 1px 0 rgba(255,255,255,0.05);
     }
 
@@ -132,9 +194,9 @@
       padding: 7px 12px;
       margin-bottom: 20px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.055);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #d5d5d5;
+      background: rgba(255, 122, 0, 0.08);
+      border: 1px solid rgba(255, 122, 0, 0.17);
+      color: #ffc18a;
       font-size: 12px;
       font-weight: 600;
     }
@@ -143,8 +205,8 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #7ee787;
-      box-shadow: 0 0 15px rgba(126,231,135,.65);
+      background: var(--orange);
+      box-shadow: 0 0 15px rgba(255,122,0,.8);
     }
 
     h1 {
@@ -153,14 +215,14 @@
       line-height: 0.95;
       letter-spacing: -0.065em;
       font-weight: 800;
-      background: linear-gradient(180deg, #ffffff 0%, #a9a9a9 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #ffb26c 45%, #ff7a00 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .subtitle {
-      max-width: 670px;
+      max-width: 700px;
       margin-top: 26px;
       color: #a7a7a7;
       font-size: clamp(17px, 2vw, 21px);
@@ -178,13 +240,19 @@
     .command-card {
       padding: 18px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.045);
+      background: linear-gradient(145deg, rgba(255,255,255,0.045), rgba(255,122,0,0.025));
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow:
-        0 24px 80px rgba(0,0,0,0.20),
+        0 24px 80px rgba(0,0,0,0.25),
         inset 0 1px 0 rgba(255,255,255,0.04);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
+      transition: 0.2s ease;
+    }
+
+    .command-card:hover {
+      border-color: rgba(255,122,0,0.20);
+      transform: translateY(-2px);
     }
 
     .command-card-header {
@@ -217,7 +285,7 @@
       width: 100%;
       padding: 14px 14px 14px 16px;
       border-radius: 12px;
-      background: #0e0e0e;
+      background: #090909;
       border: 1px solid rgba(255,255,255,0.06);
       text-align: left;
     }
@@ -237,7 +305,7 @@
     }
 
     .prompt {
-      color: #7ee787;
+      color: var(--orange);
       margin-right: 9px;
       user-select: none;
     }
@@ -245,20 +313,21 @@
     .copy-btn {
       flex: 0 0 auto;
       appearance: none;
-      border: 0;
+      border: 1px solid rgba(255,122,0,0.18);
       cursor: pointer;
       font-family: "Inter", sans-serif;
       font-size: 12px;
       font-weight: 700;
-      color: #f3f3f3;
+      color: #fff;
       padding: 9px 12px;
       border-radius: 9px;
-      background: #2e2e2e;
+      background: linear-gradient(180deg, #ff8517, #e96800);
+      box-shadow: 0 8px 22px rgba(255,122,0,0.16);
       transition: 0.18s ease;
     }
 
     .copy-btn:hover {
-      background: #3a3a3a;
+      background: linear-gradient(180deg, #ff9a3b, #ef7208);
       transform: translateY(-1px);
     }
 
@@ -278,7 +347,7 @@
     }
 
     .section-text {
-      max-width: 600px;
+      max-width: 640px;
       margin: 16px auto 0;
       text-align: center;
       font-size: 16px;
@@ -297,15 +366,17 @@
       min-height: 210px;
       padding: 26px;
       border-radius: 22px;
-      background: rgba(255,255,255,0.038);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.038), rgba(255,122,0,0.025));
       border: 1px solid rgba(255,255,255,0.065);
       transition: .2s ease;
     }
 
     .feature:hover {
       transform: translateY(-4px);
-      background: rgba(255,255,255,0.052);
-      border-color: rgba(255,255,255,0.1);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,122,0,0.045));
+      border-color: rgba(255,122,0,0.16);
     }
 
     .feature-icon {
@@ -315,8 +386,8 @@
       display: grid;
       place-items: center;
       border-radius: 12px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,122,0,0.09);
+      border: 1px solid rgba(255,122,0,0.15);
       font-size: 20px;
     }
 
@@ -360,16 +431,16 @@
     }
 
     @media (max-width: 800px) {
-      .hero {
-        padding-top: 70px;
-      }
-
       .feature-grid {
         grid-template-columns: 1fr;
       }
 
       .feature {
         min-height: auto;
+      }
+
+      .desktop-pill {
+        display: none;
       }
     }
 
@@ -381,11 +452,11 @@
       }
 
       .topbar {
-        height: 50px;
+        min-height: 54px;
       }
 
-      .desktop-pill {
-        display: none;
+      .topbar-inner {
+        gap: 10px;
       }
 
       .hero {
@@ -437,6 +508,10 @@
         font-size: 11px;
       }
 
+      .language-select {
+        padding: 8px 29px 8px 9px;
+      }
+
       footer {
         flex-direction: column;
         align-items: flex-start;
@@ -451,7 +526,20 @@
         <img src="logo.png" alt="SkyTools.Linux">
         <span>SkyTools.Linux</span>
       </div>
-      <div class="desktop-pill">Linux tools, simplified.</div>
+
+      <div class="topbar-right">
+        <div class="desktop-pill" data-i18n="topbar">Linux tools, simplified.</div>
+
+        <div class="language-box">
+          <select id="language-select" class="language-select" aria-label="Language">
+            <option value="auto">Auto</option>
+            <option value="pt">PT</option>
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+            <option value="ru">RU</option>
+          </select>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -463,12 +551,12 @@
 
       <div class="badge">
         <span class="badge-dot"></span>
-        Pronto para Linux
+        <span data-i18n="badge">Pronto para Linux</span>
       </div>
 
       <h1>SkyTools.Linux</h1>
 
-      <p class="subtitle">
+      <p class="subtitle" data-i18n="subtitle">
         Ferramentas diretas para instalar, corrigir e preparar seu sistema Linux sem complicação.
       </p>
 
@@ -476,8 +564,10 @@
         <div class="command-card">
           <div class="command-card-header">
             <div>
-              <div class="command-title">Instalar</div>
-              <div class="command-description">Execute o instalador principal do SkyTools.Linux</div>
+              <div class="command-title" data-i18n="installTitle">Instalar</div>
+              <div class="command-description" data-i18n="installDescription">
+                Execute o instalador principal do SkyTools.Linux
+              </div>
             </div>
           </div>
 
@@ -485,15 +575,17 @@
             <div class="command-text">
               <span class="prompt">$</span><span id="install-command">curl -fsSL https://renpyflare.vercel.app/install.sh | sh</span>
             </div>
-            <button class="copy-btn" onclick="copyCommand('install-command', this)">Copiar</button>
+            <button class="copy-btn" data-copy="install-command" data-i18n="copy">Copiar</button>
           </div>
         </div>
 
         <div class="command-card">
           <div class="command-card-header">
             <div>
-              <div class="command-title">Fix</div>
-              <div class="command-description">Execute caso precise reparar ou corrigir a instalação</div>
+              <div class="command-title" data-i18n="fixTitle">Fix</div>
+              <div class="command-description" data-i18n="fixDescription">
+                Execute caso precise reparar ou corrigir a instalação
+              </div>
             </div>
           </div>
 
@@ -501,40 +593,41 @@
             <div class="command-text">
               <span class="prompt">$</span><span id="fix-command">curl -fsSL https://renpyflare.vercel.app/fix.sh | sh</span>
             </div>
-            <button class="copy-btn" onclick="copyCommand('fix-command', this)">Copiar</button>
+            <button class="copy-btn" data-copy="fix-command" data-i18n="copy">Copiar</button>
           </div>
         </div>
       </div>
     </section>
 
     <section class="features">
-      <h2 class="section-title">Linux sem enrolação.</h2>
-      <p class="section-text">
-        Um conjunto de ferramentas pensado para tornar tarefas comuns no Linux mais simples e rápidas.
+      <h2 class="section-title" data-i18n="sectionTitle">Agora, o SkyTools no Linux!</h2>
+
+      <p class="section-text" data-i18n="sectionText">
+        Um dos melhores e únicos tools da atualidade agora está no Linux.
       </p>
 
       <div class="feature-grid">
         <div class="feature">
           <div class="feature-icon">⚡</div>
-          <h3>Instalação rápida</h3>
-          <p>
+          <h3 data-i18n="feature1Title">Instalação rápida e segura</h3>
+          <p data-i18n="feature1Text">
             Um único comando para iniciar o instalador e configurar o que for necessário.
           </p>
         </div>
 
         <div class="feature">
-          <div class="feature-icon">🔧</div>
-          <h3>Ferramenta de correção</h3>
-          <p>
-            O script de fix ajuda a recuperar uma instalação que apresentou problemas.
+          <div class="feature-icon">🐧</div>
+          <h3 data-i18n="feature2Title">Tudo do SkyTools agora no seu Linux</h3>
+          <p data-i18n="feature2Text">
+            Desfrute do plugin agora em seu Linux.
           </p>
         </div>
 
         <div class="feature">
-          <div class="feature-icon">🐧</div>
-          <h3>Feito para Linux</h3>
-          <p>
-            Interface, fluxo e ferramentas pensados desde o início para usuários Linux.
+          <div class="feature-icon">🔧</div>
+          <h3 data-i18n="feature3Title">Correção simples</h3>
+          <p data-i18n="feature3Text">
+            Use a ferramenta Fix quando precisar reparar a instalação.
           </p>
         </div>
       </div>
@@ -546,20 +639,173 @@
       <img src="logo.png" alt="">
       <span>SkyTools.Linux</span>
     </div>
-    <span>© 2026 SkyTools.Linux</span>
+    <span data-i18n="copyright">© 2026 renpyflare</span>
   </footer>
 
   <script>
+    const translations = {
+      pt: {
+        topbar: "Ferramentas Linux, simplificadas.",
+        badge: "Pronto para Linux",
+        subtitle: "Ferramentas diretas para instalar, corrigir e preparar seu sistema Linux sem complicação.",
+        installTitle: "Instalar",
+        installDescription: "Execute o instalador principal do SkyTools.Linux",
+        fixTitle: "Fix",
+        fixDescription: "Execute caso precise reparar ou corrigir a instalação",
+        copy: "Copiar",
+        copied: "Copiado",
+        sectionTitle: "Agora, o SkyTools no Linux!",
+        sectionText: "Um dos melhores e únicos tools da atualidade agora está no Linux.",
+        feature1Title: "Instalação rápida e segura",
+        feature1Text: "Um único comando para iniciar o instalador e configurar o que for necessário.",
+        feature2Title: "Tudo do SkyTools agora no seu Linux",
+        feature2Text: "Desfrute do plugin agora em seu Linux.",
+        feature3Title: "Correção simples",
+        feature3Text: "Use a ferramenta Fix quando precisar reparar a instalação.",
+        copyright: "© 2026 renpyflare",
+        language: "Idioma"
+      },
+      es: {
+        topbar: "Herramientas Linux, simplificadas.",
+        badge: "Listo para Linux",
+        subtitle: "Herramientas directas para instalar, reparar y preparar tu sistema Linux sin complicaciones.",
+        installTitle: "Instalar",
+        installDescription: "Ejecuta el instalador principal de SkyTools.Linux",
+        fixTitle: "Fix",
+        fixDescription: "Úsalo cuando necesites reparar o corregir la instalación",
+        copy: "Copiar",
+        copied: "Copiado",
+        sectionTitle: "¡Ahora, SkyTools en Linux!",
+        sectionText: "Una de las herramientas más útiles de la actualidad ahora está en Linux.",
+        feature1Title: "Instalación rápida y segura",
+        feature1Text: "Un solo comando para iniciar el instalador y configurar lo necesario.",
+        feature2Title: "Todo SkyTools ahora en tu Linux",
+        feature2Text: "Disfruta del plugin ahora en tu Linux.",
+        feature3Title: "Corrección sencilla",
+        feature3Text: "Usa la herramienta Fix cuando necesites reparar la instalación.",
+        copyright: "© 2026 renpyflare",
+        language: "Idioma"
+      },
+      en: {
+        topbar: "Linux tools, simplified.",
+        badge: "Ready for Linux",
+        subtitle: "Direct tools to install, repair, and prepare your Linux system without the hassle.",
+        installTitle: "Install",
+        installDescription: "Run the main SkyTools.Linux installer",
+        fixTitle: "Fix",
+        fixDescription: "Run this when you need to repair or fix the installation",
+        copy: "Copy",
+        copied: "Copied",
+        sectionTitle: "SkyTools is now on Linux!",
+        sectionText: "One of today's unique tools is now available on Linux.",
+        feature1Title: "Fast and secure installation",
+        feature1Text: "One command to start the installer and configure everything needed.",
+        feature2Title: "All of SkyTools on your Linux",
+        feature2Text: "Enjoy the plugin on your Linux system.",
+        feature3Title: "Simple repair",
+        feature3Text: "Use the Fix tool whenever you need to repair the installation.",
+        copyright: "© 2026 renpyflare",
+        language: "Language"
+      },
+      ru: {
+        topbar: "Инструменты Linux, без лишней сложности.",
+        badge: "Готово для Linux",
+        subtitle: "Простые инструменты для установки, исправления и настройки вашей Linux-системы.",
+        installTitle: "Установить",
+        installDescription: "Запустите основной установщик SkyTools.Linux",
+        fixTitle: "Fix",
+        fixDescription: "Используйте, если необходимо восстановить или исправить установку",
+        copy: "Копировать",
+        copied: "Скопировано",
+        sectionTitle: "Теперь SkyTools в Linux!",
+        sectionText: "Один из современных инструментов теперь доступен в Linux.",
+        feature1Title: "Быстрая и безопасная установка",
+        feature1Text: "Одна команда для запуска установщика и настройки необходимых компонентов.",
+        feature2Title: "Весь SkyTools теперь в Linux",
+        feature2Text: "Используйте плагин прямо в вашей Linux-системе.",
+        feature3Title: "Простое исправление",
+        feature3Text: "Используйте Fix, когда необходимо восстановить установку.",
+        copyright: "© 2026 renpyflare",
+        language: "Язык"
+      }
+    };
+
+    const supportedLanguages = ["pt", "es", "en", "ru"];
+    const languageSelect = document.getElementById("language-select");
+
+    function detectLanguage() {
+      const browserLanguages = navigator.languages && navigator.languages.length
+        ? navigator.languages
+        : [navigator.language || "pt"];
+
+      for (const language of browserLanguages) {
+        const code = language.toLowerCase().split("-")[0];
+
+        if (supportedLanguages.includes(code)) {
+          return code;
+        }
+      }
+
+      return "en";
+    }
+
+    function applyLanguage(language) {
+      const selectedLanguage = language === "auto" ? detectLanguage() : language;
+      const t = translations[selectedLanguage];
+
+      document.documentElement.lang = selectedLanguage === "pt"
+        ? "pt-BR"
+        : selectedLanguage === "es"
+          ? "es"
+          : selectedLanguage === "ru"
+            ? "ru"
+            : "en";
+
+      document.title = "SkyTools.Linux";
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.getAttribute("data-i18n");
+
+        if (t[key]) {
+          element.textContent = t[key];
+        }
+      });
+
+      document.querySelectorAll(".copy-btn").forEach(button => {
+        button.textContent = t.copy;
+      });
+
+      document.documentElement.style.setProperty(
+        "--language-title",
+        `"${t.language}"`
+      );
+    }
+
+    function saveLanguage(language) {
+      localStorage.setItem("skytools-language", language);
+    }
+
+    function loadLanguage() {
+      return localStorage.getItem("skytools-language") || "auto";
+    }
+
+    function updateLanguage() {
+      const selected = languageSelect.value;
+      saveLanguage(selected);
+      applyLanguage(selected);
+    }
+
     async function copyCommand(id, button) {
       const command = document.getElementById(id).textContent.trim();
+      const activeLanguage = languageSelect.value === "auto"
+        ? detectLanguage()
+        : languageSelect.value;
+
+      const copiedText = translations[activeLanguage].copied;
+      const normalText = translations[activeLanguage].copy;
 
       try {
         await navigator.clipboard.writeText(command);
-        const originalText = button.textContent;
-        button.textContent = "Copiado";
-        setTimeout(() => {
-          button.textContent = originalText;
-        }, 1600);
       } catch {
         const textarea = document.createElement("textarea");
         textarea.value = command;
@@ -567,14 +813,26 @@
         textarea.select();
         document.execCommand("copy");
         textarea.remove();
-
-        const originalText = button.textContent;
-        button.textContent = "Copiado";
-        setTimeout(() => {
-          button.textContent = originalText;
-        }, 1600);
       }
+
+      button.textContent = copiedText;
+
+      setTimeout(() => {
+        button.textContent = normalText;
+      }, 1600);
     }
+
+    languageSelect.addEventListener("change", updateLanguage);
+
+    document.querySelectorAll(".copy-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        copyCommand(button.dataset.copy, button);
+      });
+    });
+
+    const savedLanguage = loadLanguage();
+    languageSelect.value = savedLanguage;
+    applyLanguage(savedLanguage);
   </script>
 </body>
 </html>
