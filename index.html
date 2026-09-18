@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090909">
-  <meta name="description" content="SkyTools.Linux - Um port do SkyTools para Linux.">
+  <meta name="description" content="SkyTools.Linux - Port do SkyTools de Windows para Linux através do Millennium.">
   <title>SkyTools.Linux</title>
 
   <meta property="og:title" content="SkyTools.Linux">
-  <meta property="og:description" content="Um port do SkyTools para Linux.">
+  <meta property="og:description" content="Um port do SkyTools de Windows para Linux através do Millennium.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://renpyflare.vercel.app/pinguim-safado.png">
   <meta property="og:url" content="https://renpyflare.vercel.app">
@@ -252,6 +252,26 @@
       margin-top: 46px;
     }
 
+    .dependency-question {
+      margin-bottom: -3px;
+      color: #f1f1f1;
+      font-size: 14px;
+      font-weight: 800;
+      text-align: left;
+    }
+
+    .dependency-question::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 9px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 14px rgba(255,122,0,.75);
+      vertical-align: middle;
+    }
+
     .command-card {
       padding: 18px;
       border-radius: 18px;
@@ -364,7 +384,7 @@
     }
 
     .section-text {
-      max-width: 680px;
+      max-width: 760px;
       margin: 17px auto 0;
       text-align: center;
       color: #8e8e8e;
@@ -547,7 +567,7 @@
       <div class="topbar-right">
 
         <div class="port-pill" data-i18n="port">
-          SkyTools.Linux
+          SkyTools Port • Linux
         </div>
 
         <select id="language-select" class="language-select" aria-label="Language">
@@ -573,23 +593,68 @@
       <div class="badge">
         <span class="badge-dot"></span>
         <span data-i18n="badge">
-          Port do SkyTools para Linux
+          Port do SkyTools de Windows para Linux
         </span>
       </div>
 
       <h1>SkyTools.Linux</h1>
 
       <p class="subtitle" data-i18n="subtitle">
-        O SkyTools.Linux é um port do SkyTools desenvolvido para trazer
-        um dos melhores tools para o Linux.
+        O SkyTools.Linux é apenas um port do SkyTools de Windows para Linux,
+        funcionando como um plugin do Millennium e adaptando seus recursos
+        para o ambiente Linux.
       </p>
 
       <div class="commands">
+
+        <div class="dependency-question" data-i18n="dependencyQuestion">
+          Precisa instalar as bibliotecas?
+        </div>
 
         <div class="command-card">
 
           <div class="command-card-header">
             <div>
+
+              <div class="command-title" data-i18n="dependencyTitle">
+                Instalar bibliotecas
+              </div>
+
+              <div class="command-description" data-i18n="dependencyDescription">
+                O instalador detecta a distribuição Linux e instala automaticamente
+                as dependências necessárias para o SkyTools.Linux.
+              </div>
+
+            </div>
+          </div>
+
+          <div class="command-line">
+
+            <div class="command-text">
+              <span class="prompt">$</span>
+              <span id="libs-command">
+                curl -fsSL https://renpyflare.vercel.app/libs.sh | sh
+              </span>
+            </div>
+
+            <button
+              class="copy-btn"
+              data-copy="libs-command"
+              data-i18n="copy"
+            >
+              Copiar
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="command-card">
+
+          <div class="command-card-header">
+            <div>
+
               <div class="command-title" data-i18n="installTitle">
                 Instalar SkyTools.Linux
               </div>
@@ -597,6 +662,7 @@
               <div class="command-description" data-i18n="installDescription">
                 Baixe e configure o SkyTools.Linux diretamente pelo terminal.
               </div>
+
             </div>
           </div>
 
@@ -633,8 +699,8 @@
       </h2>
 
       <p class="section-text" data-i18n="sectionText">
-        O SkyTools.Linux é uma adaptação do SkyTools para o ambiente Linux,
-        mantendo a proposta original enquanto adiciona suporte ao novo sistema.
+        O SkyTools.Linux não é uma nova versão do SkyTools. É um port da
+        versão Windows adaptado para Linux e executado como plugin do Millennium.
       </p>
 
 
@@ -677,12 +743,12 @@
           <div class="feature-icon">🐧</div>
 
           <h3 data-i18n="feature3Title">
-            SkyTools + Linux
+            Millennium + Linux
           </h3>
 
           <p data-i18n="feature3Text">
-            Um port focado em adaptar a experiência e os recursos do
-            SkyTools para usuários Linux.
+            O port utiliza o Millennium como base de integração para
+            disponibilizar o SkyTools no Steam para Linux.
           </p>
 
         </article>
@@ -713,11 +779,22 @@
     const translations = {
 
       pt: {
-        port: "SkyTools.Linux",
-        badge: "Port do SkyTools para Linux",
+        port: "SkyTools Port • Linux",
+
+        badge:
+          "Port do SkyTools de Windows para Linux",
 
         subtitle:
-          "O SkyTools.Linux é um port do SkyTools desenvolvido para trazer um dos melhores tools para o Linux.",
+          "O SkyTools.Linux é apenas um port do SkyTools de Windows para Linux, funcionando como um plugin do Millennium e adaptando seus recursos para o ambiente Linux.",
+
+        dependencyQuestion:
+          "Precisa instalar as bibliotecas?",
+
+        dependencyTitle:
+          "Instalar bibliotecas",
+
+        dependencyDescription:
+          "O instalador detecta a distribuição Linux e instala automaticamente as dependências necessárias para o SkyTools.Linux.",
 
         installTitle:
           "Instalar SkyTools.Linux",
@@ -735,7 +812,7 @@
           "SkyTools no Linux.",
 
         sectionText:
-          "O SkyTools.Linux é uma adaptação do SkyTools para o ambiente Linux, mantendo a proposta original enquanto adiciona suporte ao novo sistema.",
+          "O SkyTools.Linux não é uma nova versão do SkyTools. É um port da versão Windows adaptado para Linux e executado como plugin do Millennium.",
 
         feature1Title:
           "Game Fixes",
@@ -750,10 +827,10 @@
           "Ferramentas para trabalhar com manifests e informações relacionadas aos jogos.",
 
         feature3Title:
-          "SkyTools + Linux",
+          "Millennium + Linux",
 
         feature3Text:
-          "Um port focado em adaptar a experiência e os recursos do SkyTools para usuários Linux.",
+          "O port utiliza o Millennium como base de integração para disponibilizar o SkyTools no Steam para Linux.",
 
         copyright:
           "© 2026 renpyflare"
@@ -761,13 +838,23 @@
 
 
       es: {
-        port: "SkyTools Port • Linux",
+        port:
+          "SkyTools Port • Linux",
 
         badge:
-          "Port de SkyTools para Linux",
+          "Port de SkyTools de Windows para Linux",
 
         subtitle:
-          "SkyTools.Linux es un port de SkyTools desarrollado para llevar sus herramientas y funciones a Linux.",
+          "SkyTools.Linux es únicamente un port de SkyTools de Windows para Linux, funcionando como un plugin de Millennium y adaptando sus funciones al entorno Linux.",
+
+        dependencyQuestion:
+          "¿Necesitas instalar las bibliotecas?",
+
+        dependencyTitle:
+          "Instalar bibliotecas",
+
+        dependencyDescription:
+          "El instalador detecta la distribución de Linux e instala automáticamente las dependencias necesarias para SkyTools.Linux.",
 
         installTitle:
           "Instalar SkyTools.Linux",
@@ -785,7 +872,7 @@
           "SkyTools en Linux.",
 
         sectionText:
-          "SkyTools.Linux es una adaptación de SkyTools para el entorno Linux, manteniendo su propuesta original y añadiendo soporte para el nuevo sistema.",
+          "SkyTools.Linux no es una nueva versión de SkyTools. Es un port de la versión de Windows adaptado para Linux y ejecutado como plugin de Millennium.",
 
         feature1Title:
           "Game Fixes",
@@ -800,10 +887,10 @@
           "Herramientas para trabajar con manifests e información relacionada con los juegos.",
 
         feature3Title:
-          "SkyTools + Linux",
+          "Millennium + Linux",
 
         feature3Text:
-          "Un port enfocado en adaptar la experiencia y las funciones de SkyTools para usuarios de Linux.",
+          "El port utiliza Millennium como base de integración para ofrecer SkyTools en Steam para Linux.",
 
         copyright:
           "© 2026 renpyflare"
@@ -815,10 +902,19 @@
           "SkyTools Port • Linux",
 
         badge:
-          "SkyTools port for Linux",
+          "SkyTools Windows port for Linux",
 
         subtitle:
-          "SkyTools.Linux is a port of SkyTools designed to bring its tools and features to Linux.",
+          "SkyTools.Linux is simply a port of the Windows version of SkyTools to Linux, working as a Millennium plugin and adapting its features to the Linux environment.",
+
+        dependencyQuestion:
+          "Do you need to install the libraries?",
+
+        dependencyTitle:
+          "Install libraries",
+
+        dependencyDescription:
+          "The installer detects your Linux distribution and automatically installs the dependencies required by SkyTools.Linux.",
 
         installTitle:
           "Install SkyTools.Linux",
@@ -836,7 +932,7 @@
           "SkyTools on Linux.",
 
         sectionText:
-          "SkyTools.Linux is an adaptation of SkyTools for the Linux environment, keeping the original concept while adding support for the new platform.",
+          "SkyTools.Linux is not a new version of SkyTools. It is a port of the Windows version adapted for Linux and running as a Millennium plugin.",
 
         feature1Title:
           "Game Fixes",
@@ -851,10 +947,10 @@
           "Tools for working with manifests and game-related information.",
 
         feature3Title:
-          "SkyTools + Linux",
+          "Millennium + Linux",
 
         feature3Text:
-          "A port focused on adapting the SkyTools experience and features for Linux users.",
+          "The port uses Millennium as its integration layer to provide SkyTools on Steam for Linux.",
 
         copyright:
           "© 2026 renpyflare"
@@ -869,7 +965,16 @@
           "Порт SkyTools для Linux",
 
         subtitle:
-          "SkyTools.Linux — это порт SkyTools, созданный для переноса его инструментов и функций в Linux.",
+          "SkyTools.Linux — это порт Windows-версии SkyTools для Linux, работающий как плагин Millennium и адаптирующий функции SkyTools для Linux.",
+
+        dependencyQuestion:
+          "Нужно установить библиотеки?",
+
+        dependencyTitle:
+          "Установить библиотеки",
+
+        dependencyDescription:
+          "Установщик определяет ваш дистрибутив Linux и автоматически устанавливает необходимые зависимости для SkyTools.Linux.",
 
         installTitle:
           "Установить SkyTools.Linux",
@@ -887,7 +992,7 @@
           "SkyTools в Linux.",
 
         sectionText:
-          "SkyTools.Linux — адаптация SkyTools для Linux, сохраняющая основную концепцию и добавляющая поддержку новой платформы.",
+          "SkyTools.Linux — это не новая версия SkyTools. Это порт Windows-версии, адаптированный для Linux и работающий как плагин Millennium.",
 
         feature1Title:
           "Game Fixes",
@@ -902,10 +1007,10 @@
           "Инструменты для работы с manifests и информацией, связанной с играми.",
 
         feature3Title:
-          "SkyTools + Linux",
+          "Millennium + Linux",
 
         feature3Text:
-          "Порт, предназначенный для адаптации возможностей SkyTools для пользователей Linux.",
+          "Порт использует Millennium в качестве основы интеграции для работы SkyTools в Steam на Linux.",
 
         copyright:
           "© 2026 renpyflare"
