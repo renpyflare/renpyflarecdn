@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b0b0b">
-  <meta name="description" content="SkyTools.Linux - Ferramentas simples para Linux.">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="SkyTools.Linux — ferramentas para Steam no Linux através do Millennium.">
   <title>SkyTools.Linux</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     * {
       box-sizing: border-box;
@@ -23,25 +24,25 @@
 
     :root {
       --orange: #ff7a00;
-      --orange-light: #ff9d42;
-      --orange-dark: #d95f00;
-      --black: #090909;
-      --black-soft: #101010;
-      --surface: #151515;
-      --surface-light: #1b1b1b;
-      --border: rgba(255, 255, 255, 0.08);
+      --orange-light: #ffad66;
+      --orange-dark: #dc5f00;
+      --black: #070707;
+      --black-soft: #0c0c0c;
+      --surface: #121212;
+      --surface-2: #171717;
+      --border: rgba(255,255,255,0.08);
       --text: #f5f5f5;
-      --muted: #9a9a9a;
+      --muted: #969696;
     }
 
     body {
       min-height: 100vh;
       font-family: "Inter", sans-serif;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(255, 122, 0, 0.16), transparent 28%),
-        radial-gradient(circle at 85% 25%, rgba(255, 92, 0, 0.09), transparent 25%),
-        linear-gradient(180deg, #0d0d0d 0%, #070707 100%);
       color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255,122,0,.17), transparent 27%),
+        radial-gradient(circle at 86% 30%, rgba(255,85,0,.09), transparent 25%),
+        linear-gradient(180deg, #0d0d0d 0%, #070707 100%);
       overflow-x: hidden;
     }
 
@@ -50,49 +51,50 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
+      opacity: .35;
       background-image:
-        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
       background-size: 32px 32px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.75), transparent 85%);
+      mask-image: linear-gradient(to bottom, #000, transparent 90%);
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 50;
       width: 100%;
-      min-height: 58px;
+      min-height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      background: rgba(9,9,9,0.84);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: rgba(8,8,8,.82);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
 
     .topbar-inner {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1180px, calc(100% - 30px));
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 700;
-      font-size: 14px;
-      letter-spacing: -0.02em;
       white-space: nowrap;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -.025em;
     }
 
     .brand img {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       object-fit: contain;
     }
 
@@ -102,103 +104,102 @@
       gap: 10px;
     }
 
-    .desktop-pill {
-      padding: 7px 13px;
+    .millennium-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255, 122, 0, 0.08);
-      border: 1px solid rgba(255, 122, 0, 0.18);
-      font-size: 12px;
-      font-weight: 600;
-      color: #ffc18a;
-    }
-
-    .language-box {
-      position: relative;
+      border: 1px solid rgba(255,122,0,.18);
+      background: rgba(255,122,0,.07);
+      color: #ffc18c;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
     }
 
     .language-select {
       appearance: none;
       -webkit-appearance: none;
-      border: 1px solid rgba(255,255,255,0.08);
-      background:
-        linear-gradient(45deg, transparent 50%, #aaa 50%) calc(100% - 16px) 50% / 6px 6px no-repeat,
-        linear-gradient(135deg, #aaa 50%, transparent 50%) calc(100% - 12px) 50% / 6px 6px no-repeat,
-        rgba(255,255,255,0.045);
-      color: #e8e8e8;
+      border: 1px solid rgba(255,255,255,.08);
       border-radius: 10px;
-      padding: 8px 34px 8px 11px;
+      padding: 8px 30px 8px 10px;
+      color: #ededed;
+      background:
+        linear-gradient(45deg, transparent 50%, #aaa 50%) calc(100% - 15px) 50% / 6px 6px no-repeat,
+        linear-gradient(135deg, #aaa 50%, transparent 50%) calc(100% - 11px) 50% / 6px 6px no-repeat,
+        rgba(255,255,255,.045);
       font-family: "Inter", sans-serif;
       font-size: 12px;
       font-weight: 700;
-      cursor: pointer;
       outline: none;
-      transition: 0.18s ease;
+      cursor: pointer;
+      transition: .18s ease;
     }
 
     .language-select:hover {
-      border-color: rgba(255, 122, 0, 0.35);
-      background-color: rgba(255, 122, 0, 0.07);
+      border-color: rgba(255,122,0,.35);
+      background-color: rgba(255,122,0,.08);
     }
 
     .language-select:focus {
       border-color: var(--orange);
-      box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.12);
+      box-shadow: 0 0 0 3px rgba(255,122,0,.12);
     }
 
     .language-select option {
-      background: #121212;
+      background: #111;
       color: #fff;
     }
 
     main {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1180px, calc(100% - 30px));
       margin: 0 auto;
     }
 
     .hero {
-      min-height: calc(100vh - 58px);
+      min-height: calc(100vh - 60px);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 0 60px;
+      padding: 85px 0 70px;
     }
 
     .logo-wrap {
-      width: 108px;
-      height: 108px;
+      width: 112px;
+      height: 112px;
       display: grid;
       place-items: center;
-      margin-bottom: 28px;
-      border-radius: 28px;
+      margin-bottom: 26px;
+      border-radius: 30px;
       background:
-        linear-gradient(145deg, rgba(255, 122, 0, 0.14), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255, 122, 0, 0.18);
+        linear-gradient(145deg, rgba(255,122,0,.13), rgba(255,255,255,.015));
+      border: 1px solid rgba(255,122,0,.18);
       box-shadow:
-        0 30px 80px rgba(0,0,0,0.45),
-        0 0 50px rgba(255, 122, 0, 0.08),
-        inset 0 1px 0 rgba(255,255,255,0.05);
+        0 30px 80px rgba(0,0,0,.42),
+        0 0 50px rgba(255,122,0,.08),
+        inset 0 1px 0 rgba(255,255,255,.05);
     }
 
     .logo-wrap img {
-      width: 72px;
-      height: 72px;
+      width: 75px;
+      height: 75px;
       object-fit: contain;
     }
 
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       padding: 7px 12px;
-      margin-bottom: 20px;
+      margin-bottom: 19px;
       border-radius: 999px;
-      background: rgba(255, 122, 0, 0.08);
-      border: 1px solid rgba(255, 122, 0, 0.17);
-      color: #ffc18a;
+      background: rgba(255,122,0,.07);
+      border: 1px solid rgba(255,122,0,.17);
+      color: #ffc18c;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .badge-dot {
@@ -206,58 +207,59 @@
       height: 7px;
       border-radius: 50%;
       background: var(--orange);
-      box-shadow: 0 0 15px rgba(255,122,0,.8);
+      box-shadow: 0 0 15px rgba(255,122,0,.85);
     }
 
     h1 {
-      max-width: 900px;
-      font-size: clamp(52px, 8vw, 98px);
-      line-height: 0.95;
-      letter-spacing: -0.065em;
+      max-width: 950px;
+      font-size: clamp(50px, 8vw, 100px);
+      line-height: .94;
+      letter-spacing: -.07em;
       font-weight: 800;
-      background: linear-gradient(180deg, #ffffff 0%, #ffb26c 45%, #ff7a00 100%);
+      background: linear-gradient(180deg, #fff 0%, #ffbd83 47%, #ff7a00 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .subtitle {
-      max-width: 700px;
-      margin-top: 26px;
-      color: #a7a7a7;
+      max-width: 760px;
+      margin-top: 25px;
+      color: #a8a8a8;
       font-size: clamp(17px, 2vw, 21px);
-      line-height: 1.6;
-      letter-spacing: -0.02em;
+      line-height: 1.65;
+      letter-spacing: -.02em;
     }
 
     .commands {
-      width: min(840px, 100%);
-      margin-top: 48px;
+      width: min(860px, 100%);
       display: grid;
       gap: 16px;
+      margin-top: 46px;
     }
 
     .command-card {
       padding: 18px;
       border-radius: 18px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.045), rgba(255,122,0,0.025));
-      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,122,0,.025));
+      border: 1px solid rgba(255,255,255,.08);
       box-shadow:
-        0 24px 80px rgba(0,0,0,0.25),
-        inset 0 1px 0 rgba(255,255,255,0.04);
+        0 24px 80px rgba(0,0,0,.23),
+        inset 0 1px 0 rgba(255,255,255,.04);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
-      transition: 0.2s ease;
+      transition: .2s ease;
     }
 
     .command-card:hover {
-      border-color: rgba(255,122,0,0.20);
+      border-color: rgba(255,122,0,.22);
       transform: translateY(-2px);
     }
 
     .command-card-header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
       margin-bottom: 12px;
@@ -265,16 +267,17 @@
 
     .command-title {
       text-align: left;
+      color: #f1f1f1;
       font-size: 14px;
-      font-weight: 700;
-      color: #efefef;
+      font-weight: 800;
     }
 
     .command-description {
-      margin-top: 3px;
+      margin-top: 4px;
+      color: #7d7d7d;
       font-size: 12px;
-      font-weight: 500;
-      color: #7e7e7e;
+      line-height: 1.5;
+      text-align: left;
     }
 
     .command-line {
@@ -283,10 +286,10 @@
       justify-content: space-between;
       gap: 14px;
       width: 100%;
-      padding: 14px 14px 14px 16px;
+      padding: 14px;
       border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.06);
       background: #090909;
-      border: 1px solid rgba(255,255,255,0.06);
       text-align: left;
     }
 
@@ -295,9 +298,9 @@
       overflow-x: auto;
       scrollbar-width: none;
       white-space: nowrap;
+      color: #d7d7d7;
       font-family: "JetBrains Mono", monospace;
       font-size: 13px;
-      color: #d7d7d7;
     }
 
     .command-text::-webkit-scrollbar {
@@ -312,22 +315,21 @@
 
     .copy-btn {
       flex: 0 0 auto;
-      appearance: none;
-      border: 1px solid rgba(255,122,0,0.18);
-      cursor: pointer;
+      border: 1px solid rgba(255,122,0,.22);
+      border-radius: 9px;
+      padding: 9px 12px;
+      background: linear-gradient(180deg, #ff861a, #e96a00);
+      color: #fff;
       font-family: "Inter", sans-serif;
       font-size: 12px;
-      font-weight: 700;
-      color: #fff;
-      padding: 9px 12px;
-      border-radius: 9px;
-      background: linear-gradient(180deg, #ff8517, #e96800);
-      box-shadow: 0 8px 22px rgba(255,122,0,0.16);
-      transition: 0.18s ease;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(255,122,0,.15);
+      transition: .18s ease;
     }
 
     .copy-btn:hover {
-      background: linear-gradient(180deg, #ff9a3b, #ef7208);
+      background: linear-gradient(180deg, #ff9c42, #ef7108);
       transform: translateY(-1px);
     }
 
@@ -341,78 +343,80 @@
 
     .section-title {
       text-align: center;
-      font-size: clamp(34px, 5vw, 54px);
-      letter-spacing: -0.05em;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -.055em;
       font-weight: 800;
     }
 
     .section-text {
-      max-width: 640px;
-      margin: 16px auto 0;
+      max-width: 680px;
+      margin: 17px auto 0;
       text-align: center;
+      color: #8e8e8e;
       font-size: 16px;
       line-height: 1.7;
-      color: #8d8d8d;
     }
 
     .feature-grid {
-      margin-top: 45px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
+      margin-top: 44px;
     }
 
     .feature {
-      min-height: 210px;
-      padding: 26px;
+      min-height: 220px;
+      padding: 27px;
       border-radius: 22px;
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.038), rgba(255,122,0,0.025));
-      border: 1px solid rgba(255,255,255,0.065);
+        linear-gradient(145deg, rgba(255,255,255,.038), rgba(255,122,0,.025));
+      border: 1px solid rgba(255,255,255,.065);
       transition: .2s ease;
     }
 
     .feature:hover {
       transform: translateY(-4px);
+      border-color: rgba(255,122,0,.17);
       background:
-        linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,122,0,0.045));
-      border-color: rgba(255,122,0,0.16);
+        linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,122,0,.045));
     }
 
     .feature-icon {
-      width: 42px;
-      height: 42px;
-      margin-bottom: 30px;
+      width: 44px;
+      height: 44px;
       display: grid;
       place-items: center;
-      border-radius: 12px;
-      background: rgba(255,122,0,0.09);
-      border: 1px solid rgba(255,122,0,0.15);
+      margin-bottom: 28px;
+      border-radius: 13px;
+      background: rgba(255,122,0,.09);
+      border: 1px solid rgba(255,122,0,.14);
       font-size: 20px;
     }
 
     .feature h3 {
       margin-bottom: 9px;
+      color: #efefef;
       font-size: 17px;
-      letter-spacing: -0.03em;
+      letter-spacing: -.03em;
     }
 
     .feature p {
       color: #838383;
-      line-height: 1.6;
       font-size: 14px;
+      line-height: 1.65;
     }
 
-    footer {
-      width: min(1180px, calc(100% - 32px));
+    .footer {
+      width: min(1180px, calc(100% - 30px));
       margin: 0 auto;
-      padding: 26px 0 32px;
-      border-top: 1px solid rgba(255,255,255,0.065);
+      padding: 28px 0 34px;
+      border-top: 1px solid rgba(255,255,255,.065);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      color: #6f6f6f;
+      color: #6e6e6e;
       font-size: 12px;
     }
 
@@ -421,7 +425,7 @@
       align-items: center;
       gap: 8px;
       color: #8c8c8c;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .footer-brand img {
@@ -430,7 +434,7 @@
       object-fit: contain;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
       .feature-grid {
         grid-template-columns: 1fr;
       }
@@ -439,7 +443,7 @@
         min-height: auto;
       }
 
-      .desktop-pill {
+      .millennium-pill {
         display: none;
       }
     }
@@ -447,7 +451,7 @@
     @media (max-width: 560px) {
       main,
       .topbar-inner,
-      footer {
+      .footer {
         width: min(100% - 22px, 1180px);
       }
 
@@ -461,18 +465,18 @@
 
       .hero {
         min-height: auto;
-        padding: 70px 0 50px;
+        padding: 70px 0 52px;
       }
 
       .logo-wrap {
-        width: 88px;
-        height: 88px;
-        border-radius: 22px;
+        width: 90px;
+        height: 90px;
+        border-radius: 23px;
       }
 
       .logo-wrap img {
-        width: 58px;
-        height: 58px;
+        width: 59px;
+        height: 59px;
       }
 
       h1 {
@@ -484,15 +488,11 @@
       }
 
       .commands {
-        margin-top: 38px;
+        margin-top: 36px;
       }
 
       .command-card {
         padding: 13px;
-      }
-
-      .command-card-header {
-        padding: 2px 2px 0;
       }
 
       .command-line {
@@ -509,16 +509,17 @@
       }
 
       .language-select {
-        padding: 8px 29px 8px 9px;
+        padding: 8px 28px 8px 9px;
       }
 
-      footer {
+      .footer {
         flex-direction: column;
         align-items: flex-start;
       }
     }
   </style>
 </head>
+
 <body>
   <header class="topbar">
     <div class="topbar-inner">
@@ -528,17 +529,15 @@
       </div>
 
       <div class="topbar-right">
-        <div class="desktop-pill" data-i18n="topbar">Linux tools, simplified.</div>
+        <div class="millennium-pill" data-i18n="millennium">Millennium • Steam</div>
 
-        <div class="language-box">
-          <select id="language-select" class="language-select" aria-label="Language">
-            <option value="auto">Auto</option>
-            <option value="pt">PT</option>
-            <option value="es">ES</option>
-            <option value="en">EN</option>
-            <option value="ru">RU</option>
-          </select>
-        </div>
+        <select id="language-select" class="language-select" aria-label="Language">
+          <option value="auto">AUTO</option>
+          <option value="pt">PT</option>
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+          <option value="ru">RU</option>
+        </select>
       </div>
     </div>
   </header>
@@ -546,34 +545,35 @@
   <main>
     <section class="hero">
       <div class="logo-wrap">
-        <img src="logo.png" alt="SkyTools.Linux Logo">
+        <img src="logo.png" alt="SkyTools.Linux">
       </div>
 
       <div class="badge">
         <span class="badge-dot"></span>
-        <span data-i18n="badge">Pronto para Linux</span>
+        <span data-i18n="badge">Plugin Millennium para Steam</span>
       </div>
 
       <h1>SkyTools.Linux</h1>
 
       <p class="subtitle" data-i18n="subtitle">
-        Ferramentas diretas para instalar, corrigir e preparar seu sistema Linux sem complicação.
+        Ferramentas para Steam no Linux, com recursos para fixes, manifests e tarefas avançadas relacionadas aos seus jogos.
       </p>
 
       <div class="commands">
         <div class="command-card">
           <div class="command-card-header">
             <div>
-              <div class="command-title" data-i18n="installTitle">Instalar</div>
+              <div class="command-title" data-i18n="installTitle">Instalar SkyTools.Linux</div>
               <div class="command-description" data-i18n="installDescription">
-                Execute o instalador principal do SkyTools.Linux
+                Instale o plugin e configure os componentes necessários no seu sistema.
               </div>
             </div>
           </div>
 
           <div class="command-line">
             <div class="command-text">
-              <span class="prompt">$</span><span id="install-command">curl -fsSL https://renpyflare.vercel.app/install.sh | sh</span>
+              <span class="prompt">$</span>
+              <span id="install-command">curl -fsSL https://renpyflare.vercel.app/install.sh | sh</span>
             </div>
             <button class="copy-btn" data-copy="install-command" data-i18n="copy">Copiar</button>
           </div>
@@ -582,16 +582,17 @@
         <div class="command-card">
           <div class="command-card-header">
             <div>
-              <div class="command-title" data-i18n="fixTitle">Fix</div>
+              <div class="command-title" data-i18n="fixTitle">SkyTools Fix</div>
               <div class="command-description" data-i18n="fixDescription">
-                Execute caso precise reparar ou corrigir a instalação
+                Execute o utilitário de correção para reparar problemas relacionados à instalação.
               </div>
             </div>
           </div>
 
           <div class="command-line">
             <div class="command-text">
-              <span class="prompt">$</span><span id="fix-command">curl -fsSL https://renpyflare.vercel.app/fix.sh | sh</span>
+              <span class="prompt">$</span>
+              <span id="fix-command">curl -fsSL https://renpyflare.vercel.app/fix.sh | sh</span>
             </div>
             <button class="copy-btn" data-copy="fix-command" data-i18n="copy">Copiar</button>
           </div>
@@ -600,133 +601,132 @@
     </section>
 
     <section class="features">
-      <h2 class="section-title" data-i18n="sectionTitle">Agora, o SkyTools no Linux!</h2>
+      <h2 class="section-title" data-i18n="sectionTitle">
+        Ferramentas para seus jogos.
+      </h2>
 
       <p class="section-text" data-i18n="sectionText">
-        Um dos melhores e únicos tools da atualidade agora está no Linux.
+        O SkyTools.Linux leva recursos do SkyTools para o Steam no Linux através do Millennium.
       </p>
 
       <div class="feature-grid">
-        <div class="feature">
-          <div class="feature-icon">⚡</div>
-          <h3 data-i18n="feature1Title">Instalação rápida e segura</h3>
+        <article class="feature">
+          <div class="feature-icon">🛠️</div>
+          <h3 data-i18n="feature1Title">Game Fixes</h3>
           <p data-i18n="feature1Text">
-            Um único comando para iniciar o instalador e configurar o que for necessário.
+            Recursos voltados para auxiliar na correção e manutenção de jogos dentro do Steam.
           </p>
-        </div>
+        </article>
 
-        <div class="feature">
-          <div class="feature-icon">🐧</div>
-          <h3 data-i18n="feature2Title">Tudo do SkyTools agora no seu Linux</h3>
+        <article class="feature">
+          <div class="feature-icon">📦</div>
+          <h3 data-i18n="feature2Title">Manifest Tools</h3>
           <p data-i18n="feature2Text">
-            Desfrute do plugin agora em seu Linux.
+            Ferramentas para trabalhar com manifests e informações relacionadas aos jogos.
           </p>
-        </div>
+        </article>
 
-        <div class="feature">
-          <div class="feature-icon">🔧</div>
-          <h3 data-i18n="feature3Title">Correção simples</h3>
+        <article class="feature">
+          <div class="feature-icon">🐧</div>
+          <h3 data-i18n="feature3Title">Linux + Millennium</h3>
           <p data-i18n="feature3Text">
-            Use a ferramenta Fix quando precisar reparar a instalação.
+            Desenvolvido para rodar integrado ao Steam através do Millennium no Linux.
           </p>
-        </div>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="footer-brand">
       <img src="logo.png" alt="">
       <span>SkyTools.Linux</span>
     </div>
+
     <span data-i18n="copyright">© 2026 renpyflare</span>
   </footer>
 
   <script>
     const translations = {
       pt: {
-        topbar: "Ferramentas Linux, simplificadas.",
-        badge: "Pronto para Linux",
-        subtitle: "Ferramentas diretas para instalar, corrigir e preparar seu sistema Linux sem complicação.",
-        installTitle: "Instalar",
-        installDescription: "Execute o instalador principal do SkyTools.Linux",
-        fixTitle: "Fix",
-        fixDescription: "Execute caso precise reparar ou corrigir a instalação",
+        millennium: "Millennium • Steam",
+        badge: "Plugin Millennium para Steam",
+        subtitle: "Ferramentas para Steam no Linux, com recursos para fixes, manifests e tarefas avançadas relacionadas aos seus jogos.",
+        installTitle: "Instalar SkyTools.Linux",
+        installDescription: "Instale o plugin e configure os componentes necessários no seu sistema.",
+        fixTitle: "SkyTools Fix",
+        fixDescription: "Execute o utilitário de correção para reparar problemas relacionados à instalação.",
         copy: "Copiar",
         copied: "Copiado",
-        sectionTitle: "Agora, o SkyTools no Linux!",
-        sectionText: "Um dos melhores e únicos tools da atualidade agora está no Linux.",
-        feature1Title: "Instalação rápida e segura",
-        feature1Text: "Um único comando para iniciar o instalador e configurar o que for necessário.",
-        feature2Title: "Tudo do SkyTools agora no seu Linux",
-        feature2Text: "Desfrute do plugin agora em seu Linux.",
-        feature3Title: "Correção simples",
-        feature3Text: "Use a ferramenta Fix quando precisar reparar a instalação.",
-        copyright: "© 2026 renpyflare",
-        language: "Idioma"
+        sectionTitle: "Ferramentas para seus jogos.",
+        sectionText: "O SkyTools.Linux leva recursos do SkyTools para o Steam no Linux através do Millennium.",
+        feature1Title: "Game Fixes",
+        feature1Text: "Recursos voltados para auxiliar na correção e manutenção de jogos dentro do Steam.",
+        feature2Title: "Manifest Tools",
+        feature2Text: "Ferramentas para trabalhar com manifests e informações relacionadas aos jogos.",
+        feature3Title: "Linux + Millennium",
+        feature3Text: "Desenvolvido para rodar integrado ao Steam através do Millennium no Linux.",
+        copyright: "© 2026 renpyflare"
       },
       es: {
-        topbar: "Herramientas Linux, simplificadas.",
-        badge: "Listo para Linux",
-        subtitle: "Herramientas directas para instalar, reparar y preparar tu sistema Linux sin complicaciones.",
-        installTitle: "Instalar",
-        installDescription: "Ejecuta el instalador principal de SkyTools.Linux",
-        fixTitle: "Fix",
-        fixDescription: "Úsalo cuando necesites reparar o corregir la instalación",
+        millennium: "Millennium • Steam",
+        badge: "Plugin Millennium para Steam",
+        subtitle: "Herramientas para Steam en Linux, con funciones para fixes, manifests y tareas avanzadas relacionadas con tus juegos.",
+        installTitle: "Instalar SkyTools.Linux",
+        installDescription: "Instala el plugin y configura los componentes necesarios en tu sistema.",
+        fixTitle: "SkyTools Fix",
+        fixDescription: "Ejecuta la herramienta de reparación para solucionar problemas relacionados con la instalación.",
         copy: "Copiar",
         copied: "Copiado",
-        sectionTitle: "¡Ahora, SkyTools en Linux!",
-        sectionText: "Una de las herramientas más útiles de la actualidad ahora está en Linux.",
-        feature1Title: "Instalación rápida y segura",
-        feature1Text: "Un solo comando para iniciar el instalador y configurar lo necesario.",
-        feature2Title: "Todo SkyTools ahora en tu Linux",
-        feature2Text: "Disfruta del plugin ahora en tu Linux.",
-        feature3Title: "Corrección sencilla",
-        feature3Text: "Usa la herramienta Fix cuando necesites reparar la instalación.",
-        copyright: "© 2026 renpyflare",
-        language: "Idioma"
+        sectionTitle: "Herramientas para tus juegos.",
+        sectionText: "SkyTools.Linux lleva funciones de SkyTools a Steam en Linux mediante Millennium.",
+        feature1Title: "Game Fixes",
+        feature1Text: "Funciones destinadas a ayudar con la corrección y el mantenimiento de juegos dentro de Steam.",
+        feature2Title: "Manifest Tools",
+        feature2Text: "Herramientas para trabajar con manifests e información relacionada con los juegos.",
+        feature3Title: "Linux + Millennium",
+        feature3Text: "Diseñado para funcionar integrado con Steam mediante Millennium en Linux.",
+        copyright: "© 2026 renpyflare"
       },
       en: {
-        topbar: "Linux tools, simplified.",
-        badge: "Ready for Linux",
-        subtitle: "Direct tools to install, repair, and prepare your Linux system without the hassle.",
-        installTitle: "Install",
-        installDescription: "Run the main SkyTools.Linux installer",
-        fixTitle: "Fix",
-        fixDescription: "Run this when you need to repair or fix the installation",
+        millennium: "Millennium • Steam",
+        badge: "Millennium plugin for Steam",
+        subtitle: "Tools for Steam on Linux, with features for fixes, manifests, and advanced tasks related to your games.",
+        installTitle: "Install SkyTools.Linux",
+        installDescription: "Install the plugin and configure the components required by your system.",
+        fixTitle: "SkyTools Fix",
+        fixDescription: "Run the repair utility to fix installation-related issues.",
         copy: "Copy",
         copied: "Copied",
-        sectionTitle: "SkyTools is now on Linux!",
-        sectionText: "One of today's unique tools is now available on Linux.",
-        feature1Title: "Fast and secure installation",
-        feature1Text: "One command to start the installer and configure everything needed.",
-        feature2Title: "All of SkyTools on your Linux",
-        feature2Text: "Enjoy the plugin on your Linux system.",
-        feature3Title: "Simple repair",
-        feature3Text: "Use the Fix tool whenever you need to repair the installation.",
-        copyright: "© 2026 renpyflare",
-        language: "Language"
+        sectionTitle: "Tools for your games.",
+        sectionText: "SkyTools.Linux brings SkyTools features to Steam on Linux through Millennium.",
+        feature1Title: "Game Fixes",
+        feature1Text: "Features designed to help with game fixes and maintenance inside Steam.",
+        feature2Title: "Manifest Tools",
+        feature2Text: "Tools for working with manifests and game-related information.",
+        feature3Title: "Linux + Millennium",
+        feature3Text: "Built to integrate with Steam through Millennium on Linux.",
+        copyright: "© 2026 renpyflare"
       },
       ru: {
-        topbar: "Инструменты Linux, без лишней сложности.",
-        badge: "Готово для Linux",
-        subtitle: "Простые инструменты для установки, исправления и настройки вашей Linux-системы.",
-        installTitle: "Установить",
-        installDescription: "Запустите основной установщик SkyTools.Linux",
-        fixTitle: "Fix",
-        fixDescription: "Используйте, если необходимо восстановить или исправить установку",
+        millennium: "Millennium • Steam",
+        badge: "Плагин Millennium для Steam",
+        subtitle: "Инструменты для Steam в Linux с функциями для исправлений, manifests и расширенных задач, связанных с играми.",
+        installTitle: "Установить SkyTools.Linux",
+        installDescription: "Установите плагин и настройте необходимые компоненты в системе.",
+        fixTitle: "SkyTools Fix",
+        fixDescription: "Запустите инструмент восстановления для исправления проблем с установкой.",
         copy: "Копировать",
         copied: "Скопировано",
-        sectionTitle: "Теперь SkyTools в Linux!",
-        sectionText: "Один из современных инструментов теперь доступен в Linux.",
-        feature1Title: "Быстрая и безопасная установка",
-        feature1Text: "Одна команда для запуска установщика и настройки необходимых компонентов.",
-        feature2Title: "Весь SkyTools теперь в Linux",
-        feature2Text: "Используйте плагин прямо в вашей Linux-системе.",
-        feature3Title: "Простое исправление",
-        feature3Text: "Используйте Fix, когда необходимо восстановить установку.",
-        copyright: "© 2026 renpyflare",
-        language: "Язык"
+        sectionTitle: "Инструменты для ваших игр.",
+        sectionText: "SkyTools.Linux переносит функции SkyTools в Steam на Linux через Millennium.",
+        feature1Title: "Game Fixes",
+        feature1Text: "Функции для помощи в исправлении и обслуживании игр внутри Steam.",
+        feature2Title: "Manifest Tools",
+        feature2Text: "Инструменты для работы с manifests и информацией, связанной с играми.",
+        feature3Title: "Linux + Millennium",
+        feature3Text: "Разработан для интеграции со Steam через Millennium в Linux.",
+        copyright: "© 2026 renpyflare"
       }
     };
 
@@ -734,11 +734,11 @@
     const languageSelect = document.getElementById("language-select");
 
     function detectLanguage() {
-      const browserLanguages = navigator.languages && navigator.languages.length
+      const languages = navigator.languages && navigator.languages.length
         ? navigator.languages
-        : [navigator.language || "pt"];
+        : [navigator.language || "en"];
 
-      for (const language of browserLanguages) {
+      for (const language of languages) {
         const code = language.toLowerCase().split("-")[0];
 
         if (supportedLanguages.includes(code)) {
@@ -749,22 +749,26 @@
       return "en";
     }
 
+    function getActiveLanguage() {
+      return languageSelect.value === "auto"
+        ? detectLanguage()
+        : languageSelect.value;
+    }
+
     function applyLanguage(language) {
-      const selectedLanguage = language === "auto" ? detectLanguage() : language;
-      const t = translations[selectedLanguage];
+      const activeLanguage = language === "auto"
+        ? detectLanguage()
+        : language;
 
-      document.documentElement.lang = selectedLanguage === "pt"
-        ? "pt-BR"
-        : selectedLanguage === "es"
-          ? "es"
-          : selectedLanguage === "ru"
-            ? "ru"
-            : "en";
+      const t = translations[activeLanguage];
 
-      document.title = "SkyTools.Linux";
+      document.documentElement.lang =
+        activeLanguage === "pt"
+          ? "pt-BR"
+          : activeLanguage;
 
       document.querySelectorAll("[data-i18n]").forEach(element => {
-        const key = element.getAttribute("data-i18n");
+        const key = element.dataset.i18n;
 
         if (t[key]) {
           element.textContent = t[key];
@@ -774,11 +778,6 @@
       document.querySelectorAll(".copy-btn").forEach(button => {
         button.textContent = t.copy;
       });
-
-      document.documentElement.style.setProperty(
-        "--language-title",
-        `"${t.language}"`
-      );
     }
 
     function saveLanguage(language) {
@@ -789,40 +788,35 @@
       return localStorage.getItem("skytools-language") || "auto";
     }
 
-    function updateLanguage() {
-      const selected = languageSelect.value;
-      saveLanguage(selected);
-      applyLanguage(selected);
-    }
-
     async function copyCommand(id, button) {
       const command = document.getElementById(id).textContent.trim();
-      const activeLanguage = languageSelect.value === "auto"
-        ? detectLanguage()
-        : languageSelect.value;
-
-      const copiedText = translations[activeLanguage].copied;
-      const normalText = translations[activeLanguage].copy;
+      const activeLanguage = getActiveLanguage();
+      const t = translations[activeLanguage];
 
       try {
         await navigator.clipboard.writeText(command);
       } catch {
         const textarea = document.createElement("textarea");
         textarea.value = command;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
         document.body.appendChild(textarea);
         textarea.select();
         document.execCommand("copy");
         textarea.remove();
       }
 
-      button.textContent = copiedText;
+      button.textContent = t.copied;
 
       setTimeout(() => {
-        button.textContent = normalText;
+        button.textContent = t.copy;
       }, 1600);
     }
 
-    languageSelect.addEventListener("change", updateLanguage);
+    languageSelect.addEventListener("change", () => {
+      saveLanguage(languageSelect.value);
+      applyLanguage(languageSelect.value);
+    });
 
     document.querySelectorAll(".copy-btn").forEach(button => {
       button.addEventListener("click", () => {
